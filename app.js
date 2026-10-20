@@ -5,5 +5,6 @@ const saudacao = hora < 12 ? "Bom dia" : hora < 18 ? "Boa tarde" : "Boa noite";
 const titulo = document.querySelector("h1");
 
 if (titulo) {
+  titulo.setAttribute("aria-live", "polite");
   titulo.textContent = `${saudacao}, Professor! 👋`;
 }
