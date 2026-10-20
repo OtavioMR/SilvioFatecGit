@@ -130,10 +130,13 @@ Captura: [`evidencias/10-remoto-local.png`](./evidencias/10-remoto-local.png).
 4. Confirmei a resposta com `curl.exe -I -L https://ola-professor-cyan.vercel.app`; o servidor retornou **HTTP 200 OK**.
 5. A captura [`evidencias/11-vercel-publicado.png`](./evidencias/11-vercel-publicado.png) mostra o site publicado. A captura [`evidencias/12-vercel-deploy.png`](./evidencias/12-vercel-deploy.png) registra os comandos e o endereço.
 6. Depois do push ao GitHub, executei `vercel.cmd --prod --yes` novamente. O deploy ficou **Ready** e manteve o endereço de produção [`https://ola-professor-cyan.vercel.app/`](https://ola-professor-cyan.vercel.app/).
+7. Após o login no painel Vercel, confirmei em **Project Settings → Git** que `OtavioMR/SilvioFatecGit` está conectado ao projeto.
+8. Na página **Deployments**, confirmei um deploy de produção **Ready**, originado pelo GitHub, para o commit `d327c47` da branch `main`.
+9. Com isso, a integração GitHub → Vercel está ativa: novos pushes para `main` podem iniciar deploys automaticamente. As capturas [`evidencias/15-vercel-deploy-github.png`](./evidencias/15-vercel-deploy-github.png) e [`evidencias/16-vercel-repositorio-conectado.png`](./evidencias/16-vercel-repositorio-conectado.png) mostram o registro do deploy e o repositório conectado.
 
 ## 11. Capturas de tela
 
-As capturas estão numeradas e foram salvas em [`evidencias/`](./evidencias/). As capturas 01 e 11 mostram o site no navegador local e na Vercel; 13 mostra o repositório no GitHub; 14 registra o estado final. As demais são capturas do painel de evidências no navegador, com os comandos e resultados observados de cada passo. O painel descreve cada captura em [`evidencias/index.html`](./evidencias/index.html).
+As capturas estão numeradas e foram salvas em [`evidencias/`](./evidencias/). As capturas 01 e 11 mostram o site no navegador local e na Vercel; 13 mostra o repositório no GitHub; 14 registra o estado final; 15 e 16 são capturas diretas do painel Vercel, mostrando o deploy originado pelo GitHub e a conexão com o repositório. As capturas de 02 a 10 são imagens do painel de evidências no navegador, com os comandos e resultados observados em cada etapa. O painel descreve as etapas em [`evidencias/index.html`](./evidencias/index.html).
 
 | Captura | Evidência |
 |---|---|
@@ -151,6 +154,8 @@ As capturas estão numeradas e foram salvas em [`evidencias/`](./evidencias/). A
 | [`12-vercel-deploy.png`](./evidencias/12-vercel-deploy.png) | Registro do deploy |
 | [`13-github-repository.png`](./evidencias/13-github-repository.png) | Repositório GitHub após o push e envio das tags |
 | [`14-status-final.png`](./evidencias/14-status-final.png) | Estado final documentado |
+| [`15-vercel-deploy-github.png`](./evidencias/15-vercel-deploy-github.png) | Deploy de produção iniciado a partir do commit no GitHub |
+| [`16-vercel-repositorio-conectado.png`](./evidencias/16-vercel-repositorio-conectado.png) | Repositório GitHub conectado nas configurações do Vercel |
 
 O painel pode ser aberto em `http://127.0.0.1:8765/docs/evidencias/index.html?passo=01` enquanto o servidor local estiver ativo.
 
@@ -158,4 +163,4 @@ O painel pode ser aberto em `http://127.0.0.1:8765/docs/evidencias/index.html?pa
 
 O repositório remoto fornecido pelo usuário estava vazio antes do envio. Enviei `main`, as três branches de funcionalidade e as duas tags pela URL oficial HTTPS. A CLI `gh` não está instalada; usei o remote Git do repositório e a credencial já configurada no ambiente.
 
-O site está publicado pela Vercel CLI. A integração automática a cada push depende da autenticação no painel web da Vercel e da conexão do repositório GitHub nas configurações do projeto; a aba do painel solicitou login durante esta execução.
+O site está publicado pela Vercel e o projeto está conectado ao repositório GitHub informado. Depois do login no painel, confirmei a conexão em **Settings → Git**. A lista de deploys também mostra o commit `d327c47` de `main` como deploy de produção **Ready**, com origem `github/OtavioMR`, confirmando que a integração automática está funcionando. Consulte as capturas [`evidencias/15-vercel-deploy-github.png`](./evidencias/15-vercel-deploy-github.png) e [`evidencias/16-vercel-repositorio-conectado.png`](./evidencias/16-vercel-repositorio-conectado.png).
