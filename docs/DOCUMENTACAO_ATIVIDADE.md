@@ -112,7 +112,9 @@ As tags são locais até que sejam enviadas com `git push origin --tags`. Captur
 1. Criei um remoto bare **local** na pasta irmã `ola-professor-remoto.git` para praticar a comunicação sem publicar o código em uma conta externa.
 2. Configurei `origin`, executei `git push -u origin main`, `git fetch --all` e conferi `git branch -vv`.
 3. Fiz um clone raso desse remoto local em uma pasta temporária.
-4. O remoto atual `origin` aponta para `../ola-professor-remoto.git`; ele não é o GitHub.
+4. Depois que você enviou a URL do GitHub, renomeei o remote local para `origin-lab` e configurei `origin` como `https://github.com/OtavioMR/SilvioFatecGit.git`.
+5. O repositório estava vazio. O push `git push -u origin main` concluiu e a branch `main` passou a rastrear `origin/main`.
+6. A captura [`evidencias/13-github-repository.png`](./evidencias/13-github-repository.png) mostra o conteúdo no repositório GitHub.
 
 O repositório GitHub informado para publicação é [`OtavioMR/SilvioFatecGit`](https://github.com/OtavioMR/SilvioFatecGit). O push da branch `main` e das tags será registrado depois que a documentação e todas as capturas estiverem prontas.
 
@@ -126,16 +128,32 @@ Captura: [`evidencias/10-remoto-local.png`](./evidencias/10-remoto-local.png).
 4. Confirmei a resposta com `curl.exe -I -L https://ola-professor-cyan.vercel.app`; o servidor retornou **HTTP 200 OK**.
 5. A captura [`evidencias/11-vercel-publicado.png`](./evidencias/11-vercel-publicado.png) mostra o site publicado. A captura [`evidencias/12-vercel-deploy.png`](./evidencias/12-vercel-deploy.png) registra os comandos e o endereço.
 
-Depois do push ao GitHub, executarei `vercel.cmd --prod --yes` mais uma vez para deixar a publicação de produção alinhada à versão final documentada.
+Depois do push inicial, executarei `vercel.cmd --prod --yes` para deixar a publicação de produção alinhada à versão final documentada.
 
 ## 11. Capturas de tela
 
-As capturas estão numeradas e foram salvas em [`evidencias/`](./evidencias/). As capturas 01 e 11 mostram o site no navegador local e na Vercel. As demais são capturas do painel de evidências no navegador, com os comandos e resultados observados de cada passo. O painel descreve cada captura em [`evidencias/index.html`](./evidencias/index.html).
+As capturas estão numeradas e foram salvas em [`evidencias/`](./evidencias/). As capturas 01 e 11 mostram o site no navegador local e na Vercel; 13 mostra o repositório no GitHub. As demais são capturas do painel de evidências no navegador, com os comandos e resultados observados de cada passo. O painel descreve cada captura em [`evidencias/index.html`](./evidencias/index.html).
+
+| Captura | Evidência |
+|---|---|
+| [`01-projeto-no-navegador.png`](./evidencias/01-projeto-no-navegador.png) | Aplicação local |
+| [`02-configuracao.png`](./evidencias/02-configuracao.png) | Ferramentas e configuração |
+| [`03-criacao-projeto.png`](./evidencias/03-criacao-projeto.png) | Inicialização do projeto |
+| [`04-ciclo-basico.png`](./evidencias/04-ciclo-basico.png) | `add`, `commit` e `log` |
+| [`05-branches-conflito.png`](./evidencias/05-branches-conflito.png) | Branches e resolução de conflito |
+| [`06-rebase-cherry-pick.png`](./evidencias/06-rebase-cherry-pick.png) | Rebase, merge e cherry-pick |
+| [`07-recuperacao.png`](./evidencias/07-recuperacao.png) | `restore`, `reset`, `revert`, `stash` e `reflog` |
+| [`08-bisect-hook.png`](./evidencias/08-bisect-hook.png) | `bisect`, hook e manutenção |
+| [`09-worktree-tags.png`](./evidencias/09-worktree-tags.png) | Worktree e tags |
+| [`10-remoto-local.png`](./evidencias/10-remoto-local.png) | Remote local, push, fetch e clone |
+| [`11-vercel-publicado.png`](./evidencias/11-vercel-publicado.png) | Aplicação publicada |
+| [`12-vercel-deploy.png`](./evidencias/12-vercel-deploy.png) | Registro do deploy |
+| [`13-github-repository.png`](./evidencias/13-github-repository.png) | Repositório GitHub após o push |
 
 O painel pode ser aberto em `http://127.0.0.1:8765/docs/evidencias/index.html?passo=01` enquanto o servidor local estiver ativo.
 
 ## 12. Publicação no GitHub
 
-O repositório remoto foi fornecido pelo usuário e estava vazio antes do envio. O push de `main` e das tags foi feito pela URL oficial HTTPS. A CLI `gh` não está instalada; usei o remote Git do repositório e a credencial já configurada no ambiente.
+O repositório remoto fornecido pelo usuário estava vazio antes do envio. O push inicial de `main` foi feito pela URL oficial HTTPS e apareceu no repositório. A CLI `gh` não está instalada; usei o remote Git do repositório e a credencial já configurada no ambiente. As tags e a documentação final serão enviadas no próximo push.
 
 O deploy da Vercel foi publicado pela CLI. A integração automática de deploy a cada push depende de conectar o projeto à conta GitHub nas configurações do projeto Vercel.
