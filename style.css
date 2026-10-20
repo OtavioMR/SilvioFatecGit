@@ -64,6 +64,7 @@ p {
   background: #635bce;
   font-size: 0.875rem;
   font-weight: 600;
+  transition: filter 150ms ease, transform 150ms ease;
 }
 
 .badge:hover {
