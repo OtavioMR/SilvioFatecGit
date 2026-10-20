@@ -6,5 +6,6 @@ const titulo = document.querySelector("h1");
 
 if (titulo) {
   titulo.setAttribute("aria-live", "polite");
+  titulo.setAttribute("aria-label", "Saudação do professor");
   titulo.textContent = `${saudacao}, Professor! 👋`;
 }
