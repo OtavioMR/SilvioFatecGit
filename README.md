@@ -14,6 +14,7 @@ Depois acesse <http://127.0.0.1:8765/>.
 
 ## Documentação da atividade
 
+- [Relatório com os prints dentro do documento (Word)](./docs/Relatorio_Atividade_Git.docx)
 - [Passo a passo executado](./docs/DOCUMENTACAO_ATIVIDADE.md)
 - [Painel de evidências](./docs/evidencias/index.html)
 - [Capturas de tela](./docs/evidencias/)
@@ -21,4 +22,3 @@ Depois acesse <http://127.0.0.1:8765/>.
 ## Publicação
 
 Produção: <https://ola-professor-cyan.vercel.app/>
-

@@ -1,167 +1,76 @@
-# Documentação da atividade: Git — Olá, Professor
+# Atividade de Git — Olá, Professor!
 
-**Data da execução:** 20/10/2026  
-**Roteiro seguido:** [`../../README.md`](../../README.md)  
-**Projeto desenvolvido:** [`../`](../)
+**Data:** 20/10/2026
 
-## Objetivo
+**Repositório:** https://github.com/OtavioMR/SilvioFatecGit
 
-Aplicar o roteiro de Git em um projeto web pequeno, registrar o histórico e guardar evidências visuais das etapas. O projeto apresenta uma saudação que muda conforme o horário local.
+**Site:** https://ola-professor-cyan.vercel.app/
 
-## Resultado entregue
+## O que eu fiz
 
-- Aplicação em [`../index.html`](../index.html), [`../style.css`](../style.css) e [`../app.js`](../app.js).
-- Regras de arquivos ignorados em [`../.gitignore`](../.gitignore).
-- Histórico Git prático, com commits, branches, conflito resolvido, rebase, merge, cherry-pick e tag.
-- Esta documentação e as capturas PNG em [`./evidencias/`](./evidencias/).
-- Painel navegável das capturas em [`./evidencias/index.html`](./evidencias/index.html).
+Eu criei uma página chamada **Olá, Professor!** usando HTML, CSS e JavaScript. A saudação muda de acordo com o horário e a página se adapta a telas menores.
 
-## 1. Verificação do ambiente
+Durante a atividade, pratiquei os principais comandos do Git. Criei commits e branches, resolvi um conflito, usei rebase e cherry-pick e experimentei formas de recuperar alterações. Também pratiquei tags, worktrees e comunicação com repositórios remotos.
 
-1. Consultei `git --version`: **Git 2.56.0.windows.2**.
-2. Consultei as ferramentas Node e Vercel: **Node.js 24.21.0**, **npm 11.19.0** e **Vercel CLI 64.5.0**.
-3. A identidade global de commit já estava configurada. Mantive as configurações globais existentes sem alterações.
-4. Inicializei o repositório dentro da pasta do projeto, sem transformar a pasta que contém o roteiro em repositório.
-5. Criei aliases `st`, `br` e `lg` apenas na configuração local deste repositório.
+## Publicação
 
-Comandos principais usados:
+Enviei o projeto para o GitHub e publiquei o site no Vercel. Depois, conectei o repositório GitHub ao projeto Vercel. Confirmei a integração quando um push para a branch `main` gerou um deploy automático com status **Ready**.
 
-```powershell
-git --version
-node --version
-npm.cmd --version
-git config --local alias.st status
-git config --local alias.br branch
-git config --local alias.lg "log --oneline --graph --decorate --all"
-```
+## Conclusão
 
-## 2. Criação da página
+Consegui praticar o fluxo do Git em um projeto completo, do primeiro commit até a publicação. Também deixei o código, os registros e as capturas disponíveis no repositório.
 
-1. Criei a subpasta `ola-professor` e inicializei a branch principal `main` com `git init -b main`.
-2. Criei `index.html`, `style.css`, `app.js` e `.gitignore` seguindo a estrutura do roteiro.
-3. A página usa `lang="pt-BR"`, viewport responsivo, um cartão central, fundo em degradê e etiqueta de controle de versão.
-4. O JavaScript escolhe “Bom dia”, “Boa tarde” ou “Boa noite” pela hora local. Também marca a saudação para leitores de tela.
-5. Abri a página no servidor local de desenvolvimento: `http://127.0.0.1:8765/`.
+## Prints da atividade
 
-O primeiro commit foi `9528fa0 feat: cria página olá professor`. A captura [`evidencias/01-projeto-no-navegador.png`](./evidencias/01-projeto-no-navegador.png) mostra a página em execução.
+As imagens 02 a 10 mostram o painel onde registrei os passos do roteiro. As demais são capturas do site, do GitHub e do Vercel.
 
-## 3. Ciclo básico de Git
+### 01 — Página aberta no navegador
+![Página local](./evidencias/01-projeto-no-navegador.png)
 
-1. Revisei a diferença de estilo com `git diff`.
-2. Registrei a melhoria da etiqueta com `git commit -am "fix: melhora contraste da etiqueta"`.
-3. Consultei o estado com `git status` e o histórico com `git log --oneline` e o alias `git lg`.
-4. Usei `git add` antes dos commits que incluíram arquivos novos ou alterações selecionadas.
+### 02 — Ferramentas e configuração do Git
+![Configuração](./evidencias/02-configuracao.png)
 
-O commit foi `6c0b7da fix: melhora contraste da etiqueta`. A imagem [`evidencias/04-ciclo-basico.png`](./evidencias/04-ciclo-basico.png) resume os comandos e o resultado.
+### 03 — Criação do projeto
+![Criação](./evidencias/03-criacao-projeto.png)
 
-## 4. Branches e conflito
+### 04 — add, commit e log
+![Ciclo básico](./evidencias/04-ciclo-basico.png)
 
-1. Criei `feature/animacao` com `git switch -c feature/animacao`.
-2. Nessa branch, alterei a saudação e adicionei um efeito de hover na etiqueta.
-3. Voltei à `main` e alterei a mesma linha do título para criar um conflito real.
-4. Executei `git merge feature/animacao`. O Git sinalizou conflito em `index.html`.
-5. Combinei as duas propostas em “Olá, Professor! Vamos praticar Git.”, removi os marcadores e finalizei o merge.
+### 05 — Branches e conflito resolvido
+![Conflito](./evidencias/05-branches-conflito.png)
 
-O conflito foi encerrado no commit `349eacc merge: integra animação e saudação`. Consulte [`evidencias/05-branches-conflito.png`](./evidencias/05-branches-conflito.png).
+### 06 — Rebase e cherry-pick
+![Rebase e cherry-pick](./evidencias/06-rebase-cherry-pick.png)
 
-## 5. Rebase, merge e cherry-pick
+### 07 — Recuperação de alterações
+![Recuperação](./evidencias/07-recuperacao.png)
 
-1. Criei `feature/nova-cor` e alterei o degradê.
-2. Enquanto a branch estava aberta, registrei uma alteração independente na `main`.
-3. Replantei a branch com `git rebase main` e integrei com `git merge --no-ff feature/nova-cor`.
-4. Criei uma pequena melhoria de acessibilidade em outra branch e trouxe o commit específico à `main` com `git cherry-pick`.
-5. Usei `git log --oneline --graph --decorate --all` para visualizar o histórico.
+### 08 — Bisect e hook
+![Bisect e hook](./evidencias/08-bisect-hook.png)
 
-O rebase e o cherry-pick foram feitos em branches locais. A captura está em [`evidencias/06-rebase-cherry-pick.png`](./evidencias/06-rebase-cherry-pick.png).
+### 09 — Worktree e tags
+![Worktree e tags](./evidencias/09-worktree-tags.png)
 
-## 6. Recuperação de alterações
+### 10 — Push, fetch e clone
+![Operações remotas](./evidencias/10-remoto-local.png)
 
-Fiz os ensaios na branch isolada `lab/maquina-do-tempo`:
+### 11 — Site publicado
+![Site na Vercel](./evidencias/11-vercel-publicado.png)
 
-1. `git restore` descartou uma alteração não preparada.
-2. `git restore --staged` retirou uma alteração da área de stage; em seguida, `git restore` limpou a alteração local de ensaio.
-3. `git reset --soft HEAD~1` manteve o ensaio em stage; `git reset --mixed HEAD` manteve o arquivo modificado fora do stage.
-4. `git reset --hard HEAD~1` descartou somente um commit criado para o ensaio nessa branch descartável.
-5. `git revert --no-edit HEAD` criou um commit inverso e preservou o histórico.
-6. `git stash push`, `git stash show -p` e `git stash pop` guardaram, exibiram e restauraram uma alteração temporária.
-7. Consultei `git reflog -8 --oneline` para ver os movimentos de `HEAD`.
+### 12 — Deploy pelo Vercel
+![Deploy](./evidencias/12-vercel-deploy.png)
 
-A branch de laboratório ficou no repositório para que o commit de revert possa ser inspecionado. A `main` não recebeu commits descartáveis. Captura: [`evidencias/07-recuperacao.png`](./evidencias/07-recuperacao.png).
+### 13 — Repositório no GitHub
+![GitHub](./evidencias/13-github-repository.png)
 
-## 7. Bisect, hook e manutenção
+### 14 — Estado final do repositório
+![Status final](./evidencias/14-status-final.png)
 
-1. Em uma sequência descartável de commits, usei `git bisect start`, marquei os extremos bom e ruim, confirmei o commit intermediário bom e deixei o Git apontar o primeiro commit ruim.
-2. O ensaio identificou `ea866bb` como primeiro commit ruim; a branch de teste e o arquivo temporário foram removidos ao concluir.
-3. Instalei por alguns minutos um hook `pre-commit` local. O hook bloqueou um commit de demonstração com `console.log`; removi a linha staged e apaguei o hook depois.
-4. `git clean -fdn` foi usado somente em modo de simulação. Não executei uma limpeza destrutiva.
-5. Consultei a integridade do repositório com `git fsck --full`.
+### 15 — Deploy originado do GitHub
+![Deploy do GitHub](./evidencias/15-vercel-deploy-github.png)
 
-Captura: [`evidencias/08-bisect-hook.png`](./evidencias/08-bisect-hook.png).
+### 16 — Repositório conectado ao Vercel
+![Conexão do repositório](./evidencias/16-vercel-repositorio-conectado.png)
 
-## 8. Visualização, worktree e tags
-
-1. Consultei o grafo de commits, as branches e o tracking local/remoto.
-2. Criei uma branch temporária e um segundo worktree com `git worktree add`.
-3. Listei os worktrees e removi o worktree auxiliar com `git worktree remove`; a branch temporária também foi removida.
-4. Registrei `v1.0.0` como tag anotada e `v1.0.0-beta` como tag leve, depois enviei ambas com `git push origin --tags`.
-
-Captura: [`evidencias/09-worktree-tags.png`](./evidencias/09-worktree-tags.png).
-
-## 9. Remoto, push, fetch e clone
-
-1. Criei um remoto bare **local** na pasta irmã `ola-professor-remoto.git` para praticar a comunicação sem publicar o código em uma conta externa.
-2. Configurei `origin`, executei `git push -u origin main`, `git fetch --all` e conferi `git branch -vv`.
-3. Fiz um clone raso desse remoto local em uma pasta temporária.
-4. Depois que você enviou a URL do GitHub, renomeei o remote local para `origin-lab` e configurei `origin` como `https://github.com/OtavioMR/SilvioFatecGit.git`.
-5. O repositório estava vazio. O push `git push -u origin main` concluiu e a branch `main` passou a rastrear `origin/main`.
-6. Enviei também as branches `feature/animacao`, `feature/nova-cor` e `feature/acessibilidade-saudacao`.
-7. Enviei as tags com `git push origin --tags` e confirmei os refs remotos com `git ls-remote --tags origin`.
-8. A captura [`evidencias/13-github-repository.png`](./evidencias/13-github-repository.png) mostra o conteúdo e as tags no repositório GitHub.
-
-O repositório GitHub informado para publicação é [`OtavioMR/SilvioFatecGit`](https://github.com/OtavioMR/SilvioFatecGit). `main`, as branches de funcionalidade e as tags foram enviados.
-
-Captura: [`evidencias/10-remoto-local.png`](./evidencias/10-remoto-local.png).
-
-## 10. Vercel
-
-1. Confirmei que a Vercel CLI 64.5.0 estava autenticada na conta.
-2. Executei `vercel.cmd --yes` na pasta do projeto. Como era o primeiro deploy, a CLI criou o projeto `otaviomrs-projects/ola-professor` e promoveu essa primeira publicação para produção.
-3. O site ficou disponível em [`https://ola-professor-cyan.vercel.app/`](https://ola-professor-cyan.vercel.app/).
-4. Confirmei a resposta com `curl.exe -I -L https://ola-professor-cyan.vercel.app`; o servidor retornou **HTTP 200 OK**.
-5. A captura [`evidencias/11-vercel-publicado.png`](./evidencias/11-vercel-publicado.png) mostra o site publicado. A captura [`evidencias/12-vercel-deploy.png`](./evidencias/12-vercel-deploy.png) registra os comandos e o endereço.
-6. Depois do push ao GitHub, executei `vercel.cmd --prod --yes` novamente. O deploy ficou **Ready** e manteve o endereço de produção [`https://ola-professor-cyan.vercel.app/`](https://ola-professor-cyan.vercel.app/).
-7. Após o login no painel Vercel, confirmei em **Project Settings → Git** que `OtavioMR/SilvioFatecGit` está conectado ao projeto.
-8. Na página **Deployments**, confirmei um deploy de produção **Ready**, originado pelo GitHub, para o commit `d327c47` da branch `main`.
-9. Para confirmar o fluxo completo, enviei as evidências ao GitHub no commit `26eaa2b`. O Vercel iniciou o deploy desse commit automaticamente e concluiu com status **Ready**. A captura [`evidencias/17-vercel-deploy-automatico.png`](./evidencias/17-vercel-deploy-automatico.png) registra o resultado.
-
-## 11. Capturas de tela
-
-As capturas estão numeradas e foram salvas em [`evidencias/`](./evidencias/). As capturas 01 e 11 mostram o site no navegador local e na Vercel; 13 mostra o repositório no GitHub; 14 registra o estado final; 15 e 16 são capturas diretas do painel Vercel, mostrando a conexão e o deploy anterior originado pelo GitHub; 17 mostra o novo commit `26eaa2b` publicado automaticamente. As capturas de 02 a 10 são imagens do painel de evidências no navegador, com os comandos e resultados observados em cada etapa. O painel descreve as etapas em [`evidencias/index.html`](./evidencias/index.html).
-
-| Captura | Evidência |
-|---|---|
-| [`01-projeto-no-navegador.png`](./evidencias/01-projeto-no-navegador.png) | Aplicação local |
-| [`02-configuracao.png`](./evidencias/02-configuracao.png) | Ferramentas e configuração |
-| [`03-criacao-projeto.png`](./evidencias/03-criacao-projeto.png) | Inicialização do projeto |
-| [`04-ciclo-basico.png`](./evidencias/04-ciclo-basico.png) | `add`, `commit` e `log` |
-| [`05-branches-conflito.png`](./evidencias/05-branches-conflito.png) | Branches e resolução de conflito |
-| [`06-rebase-cherry-pick.png`](./evidencias/06-rebase-cherry-pick.png) | Rebase, merge e cherry-pick |
-| [`07-recuperacao.png`](./evidencias/07-recuperacao.png) | `restore`, `reset`, `revert`, `stash` e `reflog` |
-| [`08-bisect-hook.png`](./evidencias/08-bisect-hook.png) | `bisect`, hook e manutenção |
-| [`09-worktree-tags.png`](./evidencias/09-worktree-tags.png) | Worktree e tags |
-| [`10-remoto-local.png`](./evidencias/10-remoto-local.png) | Remote local, push, fetch e clone |
-| [`11-vercel-publicado.png`](./evidencias/11-vercel-publicado.png) | Aplicação publicada |
-| [`12-vercel-deploy.png`](./evidencias/12-vercel-deploy.png) | Registro do deploy |
-| [`13-github-repository.png`](./evidencias/13-github-repository.png) | Repositório GitHub após o push e envio das tags |
-| [`14-status-final.png`](./evidencias/14-status-final.png) | Estado final documentado |
-| [`15-vercel-deploy-github.png`](./evidencias/15-vercel-deploy-github.png) | Deploy de produção iniciado a partir do commit no GitHub |
-| [`16-vercel-repositorio-conectado.png`](./evidencias/16-vercel-repositorio-conectado.png) | Repositório GitHub conectado nas configurações do Vercel |
-| [`17-vercel-deploy-automatico.png`](./evidencias/17-vercel-deploy-automatico.png) | Commit `26eaa2b` publicado automaticamente após o push para `main` |
-
-O painel pode ser aberto em `http://127.0.0.1:8765/docs/evidencias/index.html?passo=01` enquanto o servidor local estiver ativo.
-
-## 12. Publicação no GitHub
-
-O repositório remoto fornecido pelo usuário estava vazio antes do envio. Enviei `main`, as três branches de funcionalidade e as duas tags pela URL oficial HTTPS. A CLI `gh` não está instalada; usei o remote Git do repositório e a credencial já configurada no ambiente.
-
-O site está publicado pela Vercel e o projeto está conectado ao repositório GitHub informado. Depois do login no painel, confirmei a conexão em **Settings → Git**. O painel mostra deploys de produção prontos para commits do GitHub, inclusive o `d327c47` e o commit seguinte `26eaa2b`, enviado durante esta etapa. O deploy de `26eaa2b` apareceu após o push e foi concluído como **Ready**, confirmando a automação. Consulte as capturas [`evidencias/15-vercel-deploy-github.png`](./evidencias/15-vercel-deploy-github.png), [`evidencias/16-vercel-repositorio-conectado.png`](./evidencias/16-vercel-repositorio-conectado.png) e [`evidencias/17-vercel-deploy-automatico.png`](./evidencias/17-vercel-deploy-automatico.png).
+### 17 — Deploy automático concluído
+![Deploy automático](./evidencias/17-vercel-deploy-automatico.png)
