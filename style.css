@@ -66,6 +66,11 @@ p {
   font-weight: 600;
 }
 
+.badge:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .card {
     animation: appear 650ms ease-out both;
