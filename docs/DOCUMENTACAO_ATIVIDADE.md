@@ -114,7 +114,8 @@ As tags são locais até que sejam enviadas com `git push origin --tags`. Captur
 3. Fiz um clone raso desse remoto local em uma pasta temporária.
 4. Depois que você enviou a URL do GitHub, renomeei o remote local para `origin-lab` e configurei `origin` como `https://github.com/OtavioMR/SilvioFatecGit.git`.
 5. O repositório estava vazio. O push `git push -u origin main` concluiu e a branch `main` passou a rastrear `origin/main`.
-6. A captura [`evidencias/13-github-repository.png`](./evidencias/13-github-repository.png) mostra o conteúdo no repositório GitHub.
+6. Enviei também as branches `feature/animacao`, `feature/nova-cor` e `feature/acessibilidade-saudacao`.
+7. A captura [`evidencias/13-github-repository.png`](./evidencias/13-github-repository.png) mostra o conteúdo no repositório GitHub.
 
 O repositório GitHub informado para publicação é [`OtavioMR/SilvioFatecGit`](https://github.com/OtavioMR/SilvioFatecGit). O push da branch `main` e das tags será registrado depois que a documentação e todas as capturas estiverem prontas.
 
