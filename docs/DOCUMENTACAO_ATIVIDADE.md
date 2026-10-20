@@ -132,11 +132,11 @@ Captura: [`evidencias/10-remoto-local.png`](./evidencias/10-remoto-local.png).
 6. Depois do push ao GitHub, executei `vercel.cmd --prod --yes` novamente. O deploy ficou **Ready** e manteve o endereço de produção [`https://ola-professor-cyan.vercel.app/`](https://ola-professor-cyan.vercel.app/).
 7. Após o login no painel Vercel, confirmei em **Project Settings → Git** que `OtavioMR/SilvioFatecGit` está conectado ao projeto.
 8. Na página **Deployments**, confirmei um deploy de produção **Ready**, originado pelo GitHub, para o commit `d327c47` da branch `main`.
-9. Com isso, a integração GitHub → Vercel está ativa: novos pushes para `main` podem iniciar deploys automaticamente. As capturas [`evidencias/15-vercel-deploy-github.png`](./evidencias/15-vercel-deploy-github.png) e [`evidencias/16-vercel-repositorio-conectado.png`](./evidencias/16-vercel-repositorio-conectado.png) mostram o registro do deploy e o repositório conectado.
+9. Para confirmar o fluxo completo, enviei as evidências ao GitHub no commit `26eaa2b`. O Vercel iniciou o deploy desse commit automaticamente e concluiu com status **Ready**. A captura [`evidencias/17-vercel-deploy-automatico.png`](./evidencias/17-vercel-deploy-automatico.png) registra o resultado.
 
 ## 11. Capturas de tela
 
-As capturas estão numeradas e foram salvas em [`evidencias/`](./evidencias/). As capturas 01 e 11 mostram o site no navegador local e na Vercel; 13 mostra o repositório no GitHub; 14 registra o estado final; 15 e 16 são capturas diretas do painel Vercel, mostrando o deploy originado pelo GitHub e a conexão com o repositório. As capturas de 02 a 10 são imagens do painel de evidências no navegador, com os comandos e resultados observados em cada etapa. O painel descreve as etapas em [`evidencias/index.html`](./evidencias/index.html).
+As capturas estão numeradas e foram salvas em [`evidencias/`](./evidencias/). As capturas 01 e 11 mostram o site no navegador local e na Vercel; 13 mostra o repositório no GitHub; 14 registra o estado final; 15 e 16 são capturas diretas do painel Vercel, mostrando a conexão e o deploy anterior originado pelo GitHub; 17 mostra o novo commit `26eaa2b` publicado automaticamente. As capturas de 02 a 10 são imagens do painel de evidências no navegador, com os comandos e resultados observados em cada etapa. O painel descreve as etapas em [`evidencias/index.html`](./evidencias/index.html).
 
 | Captura | Evidência |
 |---|---|
@@ -156,6 +156,7 @@ As capturas estão numeradas e foram salvas em [`evidencias/`](./evidencias/). A
 | [`14-status-final.png`](./evidencias/14-status-final.png) | Estado final documentado |
 | [`15-vercel-deploy-github.png`](./evidencias/15-vercel-deploy-github.png) | Deploy de produção iniciado a partir do commit no GitHub |
 | [`16-vercel-repositorio-conectado.png`](./evidencias/16-vercel-repositorio-conectado.png) | Repositório GitHub conectado nas configurações do Vercel |
+| [`17-vercel-deploy-automatico.png`](./evidencias/17-vercel-deploy-automatico.png) | Commit `26eaa2b` publicado automaticamente após o push para `main` |
 
 O painel pode ser aberto em `http://127.0.0.1:8765/docs/evidencias/index.html?passo=01` enquanto o servidor local estiver ativo.
 
@@ -163,4 +164,4 @@ O painel pode ser aberto em `http://127.0.0.1:8765/docs/evidencias/index.html?pa
 
 O repositório remoto fornecido pelo usuário estava vazio antes do envio. Enviei `main`, as três branches de funcionalidade e as duas tags pela URL oficial HTTPS. A CLI `gh` não está instalada; usei o remote Git do repositório e a credencial já configurada no ambiente.
 
-O site está publicado pela Vercel e o projeto está conectado ao repositório GitHub informado. Depois do login no painel, confirmei a conexão em **Settings → Git**. A lista de deploys também mostra o commit `d327c47` de `main` como deploy de produção **Ready**, com origem `github/OtavioMR`, confirmando que a integração automática está funcionando. Consulte as capturas [`evidencias/15-vercel-deploy-github.png`](./evidencias/15-vercel-deploy-github.png) e [`evidencias/16-vercel-repositorio-conectado.png`](./evidencias/16-vercel-repositorio-conectado.png).
+O site está publicado pela Vercel e o projeto está conectado ao repositório GitHub informado. Depois do login no painel, confirmei a conexão em **Settings → Git**. O painel mostra deploys de produção prontos para commits do GitHub, inclusive o `d327c47` e o commit seguinte `26eaa2b`, enviado durante esta etapa. O deploy de `26eaa2b` apareceu após o push e foi concluído como **Ready**, confirmando a automação. Consulte as capturas [`evidencias/15-vercel-deploy-github.png`](./evidencias/15-vercel-deploy-github.png), [`evidencias/16-vercel-repositorio-conectado.png`](./evidencias/16-vercel-repositorio-conectado.png) e [`evidencias/17-vercel-deploy-automatico.png`](./evidencias/17-vercel-deploy-automatico.png).
